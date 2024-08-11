@@ -160,7 +160,7 @@ namespace Rhino.Controllers.Controllers
                 var buffer = new Span<byte>(new byte[item.Content.Length]);
                 if (Convert.TryFromBase64String(item.Content, buffer, out var _))
                 {
-                    item.Content = Encoding.UTF8.GetString(buffer);
+                    item.Content = item.Content.FromBase64();
                 }
             }
 
